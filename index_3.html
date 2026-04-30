@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MDStudio – Strony internetowe od 499 PLN | Hosting w cenie</title>
+  <meta name="description" content="Profesjonalne strony internetowe od 499 PLN. Hosting 1 rok w cenie. Szybka realizacja, prosty proces, zero bullshitu agencyjnego. Zamów stronę dziś." />
+  <meta name="keywords" content="strona internetowa, tania strona www, strona dla firmy, hosting, web design Polska" />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="MDStudio – Strony od 499 PLN z hostingiem" />
+  <meta property="og:description" content="Profesjonalne strony internetowe od 499 PLN. 1 rok hostingu w cenie. Szybka realizacja." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MDStudio – Strony od 499 PLN" />
+  <meta name="twitter:description" content="Profesjonalne strony internetowe od 499 PLN z hostingiem." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --accent: #E8FF3C;
+      --dark: #0A0A0A;
+      --mid: #141414;
+      --surface: #1C1C1C;
+      --border: #2A2A2A;
+      --text: #F0F0F0;
+      --muted: #888;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .font-display { font-family: 'Bebas Neue', sans-serif; }
+    .font-mono { font-family: 'DM Mono', monospace; }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    .accent { color: var(--accent); }
+    .bg-accent { background: var(--accent); }
+
+    .nav-link {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--accent); }
+
+    .hero-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 12vw, 11rem);
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      color: var(--muted);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(232,255,60,0.25);
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .price-badge {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .step-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      color: var(--border);
+      line-height: 1;
+    }
+
+    .portfolio-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .portfolio-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-question {
+      cursor: pointer;
+      padding: 1.25rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+    }
+    .faq-answer {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: 1.25rem;
+    }
+    .faq-icon {
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Marquee */
+    .marquee-wrapper {
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 20s linear infinite;
+      white-space: nowrap;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating nav */
+    .nav-float {
+      position: fixed;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(232,255,60,0.08) 0%, transparent 60%);
+      border: 1px solid rgba(232,255,60,0.15);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating Nav -->
+<nav class="nav-float">
+  <a href="/" class="font-display text-lg tracking-wider text-white">MDS<span class="accent">.</span></a>
+  <div class="hidden md:flex items-center gap-6">
+    <a href="#oferta" class="nav-link">Oferta</a>
+    <a href="#proces" class="nav-link">Jak to działa</a>
+    <a href="#portfolio" class="nav-link">Portfolio</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+  </div>
+  <a href="mailto:kontakt@mdstudio.pl" class="btn-primary text-xs py-2 px-4">Zamów stronę</a>
+</nav>
+
+<!-- HERO -->
+<section class="min-h-screen flex flex-col justify-end pb-20 px-6 md:px-12 pt-40" style="background: radial-gradient(ellipse at 20% 50%, rgba(232,255,60,0.06) 0%, transparent 60%);">
+  <div class="max-w-7xl mx-auto w-full">
+    <div class="tag mb-6">Strony internetowe · Hosting w cenie · Szybka realizacja</div>
+
+    <h1 class="hero-headline mb-6">
+      Strona<br/>
+      internetowa<br/>
+      <span class="accent">od 499 zł.</span>
+    </h1>
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-10">
+      <p class="text-lg md:text-xl text-gray-400 max-w-lg leading-relaxed">
+        Profesjonalna strona dla Twojej firmy. <strong class="text-white">Hosting 1 rok w cenie.</strong> Bez agencyjnych cen, bez niepotrzebnego bullshitu. Tylko to, co działa.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="mailto:kontakt@mdstudio.pl" class="btn-primary">Zamów teraz →</a>
+        <a href="#portfolio" class="btn-ghost">Zobacz realizacje</a>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-gray-800 grid grid-cols-3 md:grid-cols-4 gap-8">
+      <div>
+        <div class="font-display text-4xl accent">499+</div>
+        <div class="text-sm text-gray-500 mt-1">PLN za stronę</div>
+      </div>
+      <div>
+        <div class="font-display text-4xl text-white">7 dni</div>
+        <div class="text-sm text-gray-500 mt-1">Średni czas realizacji</div>
+      </div>
+      <div>
+        <div class="font-display text-4xl text-white">50 zł</div>
+        <div class="text-sm text-gray-500 mt-1">Hosting po roku</div>
+      </div>
+      <div class="hidden md:block">
+        <div class="font-display text-4xl text-white">1 rok</div>
+        <div class="text-sm text-gray-500 mt-1">Hosting w cenie</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee-wrapper py-4">
+  <div class="marquee-track font-mono text-xs text-gray-600 uppercase tracking-widest">
+    <span>Strony internetowe</span>
+    <span class="accent">✦</span>
+    <span>Hosting w cenie</span>
+    <span class="accent">✦</span>
+    <span>Szybka realizacja</span>
+    <span class="accent">✦</span>
+    <span>Bez zbędnych kosztów</span>
+    <span class="accent">✦</span>
+    <span>Prosta komunikacja</span>
+    <span class="accent">✦</span>
+    <span>Wyniki dla Twojej firmy</span>
+    <span class="accent">✦</span>
+    <span>Strony internetowe</span>
+    <span class="accent">✦</span>
+    <span>Hosting w cenie</span>
+    <span class="accent">✦</span>
+    <span>Szybka realizacja</span>
+    <span class="accent">✦</span>
+    <span>Bez zbędnych kosztów</span>
+    <span class="accent">✦</span>
+    <span>Prosta komunikacja</span>
+    <span class="accent">✦</span>
+    <span>Wyniki dla Twojej firmy</span>
+    <span class="accent">✦</span>
+  </div>
+</div>
+
+<!-- OFERTA -->
+<section id="oferta" class="py-24 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal">
+      <div class="tag mb-4">Oferta</div>
+      <h2 class="font-display text-5xl md:text-7xl mb-4">Co dostajesz<br/><span class="accent">za swoje pieniądze</span></h2>
+      <p class="text-gray-400 max-w-xl text-lg mb-16">Przejrzyste ceny, zero ukrytych kosztów. Wiesz za co płacisz, zanim wyślesz pierwszą wiadomość.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 reveal">
+      <!-- Main Package -->
+      <div class="highlight-box relative">
+        <div class="tag mb-6">Pakiet podstawowy</div>
+        <div class="price-badge mb-2">od 499 zł</div>
+        <p class="text-gray-400 mb-8 text-sm">Jednorazowa płatność. Hosting przez 1 rok gratis.</p>
+
+        <ul class="space-y-4">
+          <li class="check-item">
+            <div class="check-icon"><span class="text-black text-xs font-bold">✓</span></div>
+            <div>
+              <div class="font-medium text-sm">Projekt i kodowanie strony</div>
+              <div class="text-gray-500 text-xs mt-0.5">Indywidualny design dopasowany do Twojej marki</div>
+            </div>
+          </li>
+          <li class="check-item">
+            <div class="check-icon"><span class="text-black text-xs font-bold">✓</span></div>
+            <div>
+              <div class="font-medium text-sm">Hosting przez 1 rok — gratis</div>
+              <div class="text-gray-500 text-xs mt-0.5">Serwer, SSL, bezpieczeństwo — wszystko ogarnięte</div>
+            </div>
+          </li>
+          <li class="check-item">
+            <div class="check-icon"><span class="text-black text-xs font-bold">✓</span></div>
+            <div>
+              <div class="font-medium text-sm">Responsywność (mobile + desktop)</div>
+              <div class="text-gray-500 text-xs mt-0.5">Twoja strona wygląda świetnie na każdym urządzeniu</div>
+            </div>
+          </li>
+          <li class="check-item">
+            <div class="check-icon"><span class="text-black text-xs font-bold">✓</span></div>
+            <div>
+              <div class="font-medium text-sm">Podstawowe SEO</div>
+              <div class="text-gray-500 text-xs mt-0.5">Meta tagi, opisy, tytuły — żebyś był widoczny w Google</div>
+            </div>
+          </li>
+          <li class="check-item">
+            <div class="check-icon"><span class="text-black text-xs font-bold">✓</span></div>
+            <div>
+              <div class="font-medium text-sm">Formularz kontaktowy</div>
+              <div class="text-gray-500 text-xs mt-0.5">Klienci mogą się z Tobą skontaktować od razu</div>
+            </div>
+          </li>
+          <li class="check-item">
+            <div class="check-icon"><span class="text-black text-xs font-bold">✓</span></div>
+            <div>
+              <div class="font-medium text-sm">Szybka realizacja (średnio 7 dni)</div>
+              <div class="text-gray-500 text-xs mt-0.5">Bez czekania miesiącami jak u agencji</div>
+            </div>
+          </li>
+        </ul>
+
+        <a href="mailto:kontakt@mdstudio.pl" class="btn-primary mt-8 inline-block">Zamów teraz →</a>
+      </div>
+
+      <!-- Hosting info + Renewal + Updates -->
+      <div class="flex flex-col gap-6">
+        <div class="card p-6">
+          <div class="font-mono text-xs text-gray-500 mb-4 uppercase tracking-widest">Hosting po roku</div>
+          <div class="price-badge" style="font-size: 2.5rem;">50 zł / rok</div>
+          <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+            Po pierwszym roku płacisz tylko <strong class="text-white">50 zł rocznie</strong> za utrzymanie serwera. Twoja strona działa, aktualizacje bezpieczeństwa też. Zero niespodzianek.
+          </p>
+        </div>
+
+        <div class="card p-6" style="border-color: rgba(232,255,60,0.2); background: linear-gradient(135deg, rgba(232,255,60,0.06) 0%, transparent 70%);">
+          <div class="font-mono text-xs text-gray-500 mb-4 uppercase tracking-widest">Zmiany i aktualizacje treści</div>
+          <div class="price-badge" style="font-size: 2.5rem;">80 zł <span style="font-size: 1.2rem; color: var(--muted);">/ h</span></div>
+          <p class="text-gray-400 text-sm mt-3 leading-relaxed mb-4">
+            Chcesz zmienić tekst, dodać nową sekcję, zaktualizować cennik lub wrzucić nowe zdjęcia? Piszesz do mnie, wyceniam czas i działamy. <strong class="text-white">Przeważnie to 1–2 godziny.</strong>
+          </p>
+          <ul class="space-y-2 text-sm text-gray-500">
+            <li class="flex items-center gap-2"><span class="accent text-xs">→</span> Zmiana tekstów i treści</li>
+            <li class="flex items-center gap-2"><span class="accent text-xs">→</span> Nowe zdjęcia / galeria</li>
+            <li class="flex items-center gap-2"><span class="accent text-xs">→</span> Dodanie nowej sekcji</li>
+            <li class="flex items-center gap-2"><span class="accent text-xs">→</span> Korekta layoutu</li>
+          </ul>
+        </div>
+
+        <div class="card p-6" style="border-color: rgba(232,255,60,0.3); background: linear-gradient(135deg, rgba(232,255,60,0.1) 0%, transparent 60%);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="font-mono text-xs text-gray-500 uppercase tracking-widest">Program poleceń</div>
+            <div style="background: var(--accent); color: #000; font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 999px; letter-spacing: 0.05em; text-transform: uppercase;">Gratis</div>
+          </div>
+          <div class="font-display text-4xl text-white mb-2">3h zmian <span class="accent">za darmo</span></div>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Polecasz mnie znajomemu, który zamawia stronę? Dostajesz <strong class="text-white">3 godziny aktualizacji i zmian bez opłat</strong> — to 240 zł wartości. Bez żadnych warunków, bez limitu poleceń.
+          </p>
+          <div class="mt-4 font-mono text-xs text-gray-600 border border-gray-800 rounded p-3">
+            Wartość: 3h × 80 zł = <span class="accent font-bold">240 zł gratis</span>
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <div class="font-mono text-xs text-gray-500 mb-4 uppercase tracking-widest">Domena — co z nią?</div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">
+            Domena <strong class="text-white">nie jest w cenie</strong> — kupujesz ją samodzielnie (np. przez home.pl lub nazwa.pl). Kosztuje ok. 50–100 zł/rok i jest Twoją własnością, nie moją. Dzięki temu masz pełną kontrolę.
+          </p>
+          <div class="font-mono text-xs text-gray-600 border border-gray-800 rounded p-3">
+            twojafirma.pl ≈ 50–100 zł/rok
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider max-w-7xl mx-auto px-6" />
+
+<!-- WHY ME -->
+<section class="py-24 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal">
+      <div class="tag mb-4">Dlaczego ja?</div>
+      <h2 class="font-display text-5xl md:text-7xl mb-16">Nie jesteś<br/><span class="accent">jednym z wielu</span></h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-px bg-gray-800 reveal" style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
+      <div class="bg-gray-950 p-8">
+        <div class="font-display text-6xl accent mb-4">01</div>
+        <h3 class="font-semibold text-lg mb-3">Szybko. Naprawdę szybko.</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Agencje mają kolejki na miesiące. U mnie średni czas realizacji to <strong class="text-white">7 dni roboczych</strong>. Twoja strona żyje, zanim zdążysz o niej zapomnieć.</p>
+      </div>
+      <div class="bg-gray-950 p-8" style="border-left: 1px solid var(--border); border-right: 1px solid var(--border);">
+        <div class="font-display text-6xl accent mb-4">02</div>
+        <h3 class="font-semibold text-lg mb-3">Bezpośrednia komunikacja.</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Piszesz do mnie, nie do chatbota lub project managera. Masz pytanie — dostajesz odpowiedź. Bez pośredników, bez tygodniowego czekania na feedback.</p>
+      </div>
+      <div class="bg-gray-950 p-8">
+        <div class="font-display text-6xl accent mb-4">03</div>
+        <h3 class="font-semibold text-lg mb-3">Skupiam się na wynikach.</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Ładna strona to za mało. Projektuję z myślą o tym, żeby Twoi klienci zadzwonili, napisali lub kupili. Konwersja jest celem, nie efektem ubocznym.</p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 mt-8 reveal">
+      <div class="card p-8">
+        <div class="font-display text-5xl accent mb-4">04</div>
+        <h3 class="font-semibold text-lg mb-3">Przejrzyste ceny. Zero niespodzianek.</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Agencje mają briefy, oferty, negocjacje, a potem fakturę 3x wyższą niż się spodziewałeś. Tutaj: wycena przed startem, cena stała, koniec.</p>
+      </div>
+      <div class="card p-8">
+        <div class="font-display text-5xl accent mb-4">05</div>
+        <h3 class="font-semibold text-lg mb-3">Hosting, SSL, bezpieczeństwo — ogarnięte.</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Nie musisz wiedzieć czym jest certyfikat SSL ani co to VPS. Dbam o techniczne aspekty Twojej strony — Ty skupiasz się na prowadzeniu biznesu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider max-w-7xl mx-auto px-6" />
+
+<!-- JAK TO DZIAŁA -->
+<section id="proces" class="py-24 px-6 md:px-12" style="background: radial-gradient(ellipse at 80% 50%, rgba(232,255,60,0.04) 0%, transparent 60%);">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal">
+      <div class="tag mb-4">Proces</div>
+      <h2 class="font-display text-5xl md:text-7xl mb-4">Jak to<br/><span class="accent">działa?</span></h2>
+      <p class="text-gray-400 max-w-lg text-lg mb-16">Trzy proste kroki. Żadnych skomplikowanych procesów, umów na 30 stron i tygodni oczekiwania.</p>
+    </div>
+
+    <div class="space-y-0 reveal">
+      <div class="flex gap-8 items-start pb-12 border-b border-gray-800">
+        <div class="step-num">01</div>
+        <div class="pt-3">
+          <h3 class="text-2xl font-semibold mb-3">Piszesz do mnie</h3>
+          <p class="text-gray-500 leading-relaxed max-w-2xl">Wyślij maila lub wiadomość — opisz swoją firmę i co potrzebujesz. Wyceniam projekt w ciągu 24 godzin. Bez zobowiązań, bez wymagania dziesiątek dokumentów na start.</p>
+          <div class="mt-4 font-mono text-xs text-gray-600">→ kontakt@mdstudio.pl</div>
+        </div>
+      </div>
+      <div class="flex gap-8 items-start py-12 border-b border-gray-800">
+        <div class="step-num">02</div>
+        <div class="pt-3">
+          <h3 class="text-2xl font-semibold mb-3">Wypełniasz prosty brief</h3>
+          <p class="text-gray-500 leading-relaxed max-w-2xl">Kilka pytań o Twoją firmę, klientów, preferencje kolorystyczne i zakres. Nie potrzeba być technicznym — wystarczy, że wiesz czego chcesz (albo nawet nie wiesz, i to też jest OK).</p>
+        </div>
+      </div>
+      <div class="flex gap-8 items-start pt-12">
+        <div class="step-num">03</div>
+        <div class="pt-3">
+          <h3 class="text-2xl font-semibold mb-3">Dostajesz gotową stronę</h3>
+          <p class="text-gray-500 leading-relaxed max-w-2xl">W ciągu 7 dni roboczych Twoja strona jest gotowa do uruchomienia. Przesyłam link do podglądu, wprowadzamy ewentualne poprawki i strona żyje. Gotowe.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider max-w-7xl mx-auto px-6" />
+
+<!-- PORTFOLIO PREVIEW -->
+<section id="portfolio" class="py-24 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal">
+      <div>
+        <div class="tag mb-4">Realizacje</div>
+        <h2 class="font-display text-5xl md:text-7xl">Ostatnie<br/><span class="accent">projekty</span></h2>
+      </div>
+      <a href="portfolio.html" class="btn-ghost self-start md:self-auto">Pełne portfolio →</a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 reveal">
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Restauracja Złoty Talerz" class="w-full h-52 object-cover" />
+        <div class="p-6">
+          <div class="font-mono text-xs text-gray-500 mb-2">Restauracja</div>
+          <h3 class="font-semibold text-lg mb-2">Złoty Talerz</h3>
+          <p class="text-gray-500 text-sm">Landing page z menu, rezerwacjami online i galerią. Wzrost zapytań o 140% w 3 miesiące.</p>
+          <a href="portfolio.html" class="text-xs accent font-mono mt-4 inline-block">Zobacz case study →</a>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="AutoSerwis Kowalski" class="w-full h-52 object-cover" />
+        <div class="p-6">
+          <div class="font-mono text-xs text-gray-500 mb-2">Usługi motoryzacyjne</div>
+          <h3 class="font-semibold text-lg mb-2">AutoSerwis Kowalski</h3>
+          <p class="text-gray-500 text-sm">Prosta strona firmowa z formularzem wyceny. Klient dostaje teraz 20+ zapytań miesięcznie z sieci.</p>
+          <a href="portfolio.html" class="text-xs accent font-mono mt-4 inline-block">Zobacz case study →</a>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Studio Urody Marta" class="w-full h-52 object-cover" />
+        <div class="p-6">
+          <div class="font-mono text-xs text-gray-500 mb-2">Beauty & Wellness</div>
+          <h3 class="font-semibold text-lg mb-2">Studio Urody Marta</h3>
+          <p class="text-gray-500 text-sm">Elegancka strona z systemem rezerwacji i galerią prac. Pełny grafik w 2 tygodnie po uruchomieniu.</p>
+          <a href="portfolio.html" class="text-xs accent font-mono mt-4 inline-block">Zobacz case study →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider max-w-7xl mx-auto px-6" />
+
+<!-- FAQ -->
+<section id="faq" class="py-24 px-6 md:px-12">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal">
+      <div class="tag mb-4">FAQ</div>
+      <h2 class="font-display text-5xl md:text-7xl mb-12">Pytania<br/><span class="accent">i odpowiedzi</span></h2>
+    </div>
+
+    <div class="space-y-0 reveal">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Dlaczego domena nie jest w cenie?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          Domena to Twoja własność — powinna być zarejestrowana na Twoje dane i należeć do Ciebie, nie do mnie. Dzięki temu masz pełną kontrolę nad swoją marką online i możesz zmienić dostawcę usług kiedy chcesz. Kupujesz ją samodzielnie przez np. home.pl lub nazwa.pl (koszt ok. 50–100 zł/rok). Pomagam z konfiguracją po zakupie.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Jak działa hosting — co konkretnie jest w cenie?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          W cenie strony masz 1 rok hostingu na profesjonalnym serwerze — to oznacza miejsce na serwer, certyfikat SSL (https://), automatyczne kopie zapasowe i obsługę techniczną serwera. Po roku płacisz tylko 50 zł/rok za przedłużenie. Możesz też w dowolnym momencie przenieść stronę na własny hosting.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Co dokładnie dostaję po zakończeniu projektu?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          Dostajesz działającą stronę uruchomioną pod Twoją domeną, pełne pliki projektu (są Twoje na zawsze) oraz moją dostępność na pytania przez 30 dni po odbiorze. Strona jest statyczna — szybka, bezpieczna, bez zależności od zewnętrznych systemów.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Ile czasu zajmuje realizacja?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          Standardowy landing page lub strona wizytówkowa to 5–10 dni roboczych od momentu wypełnienia briefu i akceptacji wyceny. Przy większych projektach (wiele podstron, niestandardowe funkcje) ustalamy termin indywidualnie przed startem.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Czy mogę samodzielnie edytować stronę po jej uruchomieniu?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          Robię wyłącznie statyczne strony — nie wymagają panelu ani systemu CMS. Zmiany treści (tekst, zdjęcia, ceny) zlecasz mi bezpośrednio, wyceniam czas i działam. Stawka to <strong class="text-white">80 zł/h</strong>, a większość typowych zmian zajmuje 1–2 godziny. Dzięki temu strona jest szybsza, bezpieczniejsza i nie wymaga żadnej konserwacji z Twojej strony.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Ile kosztuje wprowadzenie zmian po uruchomieniu strony?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          Stawka za zmiany i aktualizacje treści wynosi <strong class="text-white">80 zł/h</strong>. Przed każdą zmianą dostajesz wycenę czasu — płacisz tylko za faktycznie przepracowane godziny. Typowe zmiany (nowy tekst, zdjęcia, sekcja) to najczęściej 1–2 godziny, czyli 80–160 zł. Pilne zmiany realizuję zazwyczaj tego samego lub następnego dnia.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Jak działa program poleceń?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          Polecasz mnie znajomemu lub firmie, która zamawia u mnie stronę — dostajesz <strong class="text-white">3 godziny zmian i aktualizacji całkowicie za darmo</strong> (wartość 240 zł). Bez żadnych warunków, bez limitów. Możesz polecać wielokrotnie — każde polecenie = kolejne 3h gratis na Twoim koncie.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Czym różnisz się od agencji?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          Agencja to kilka lub kilkanaście osób, biuro, marketing manager, account manager, project manager — i Ty płacisz za wszystkich. U mnie piszesz bezpośrednio do osoby, która robi Twoją stronę. Niższe koszty, szybsza komunikacja, to samo (albo lepsze) wykonanie.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="py-24 px-6 md:px-12" style="background: var(--surface); border-top: 1px solid var(--border);">
+  <div class="max-w-5xl mx-auto text-center reveal">
+    <div class="tag mb-6 mx-auto" style="display: inline-block;">Gotowy?</div>
+    <h2 class="font-display text-5xl md:text-8xl mb-6">
+      Twoja firma<br/>zasługuje na<br/><span class="accent">dobrą stronę.</span>
+    </h2>
+    <p class="text-gray-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+      Od 499 zł. Hosting gratis przez rok. Realizacja w 7 dni. Napisz teraz — wycenę dostajesz w ciągu 24 godzin.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="mailto:kontakt@mdstudio.pl" class="btn-primary text-base px-8 py-4">Napisz do mnie →</a>
+      <a href="tel:+48500000000" class="btn-ghost text-base px-8 py-4">+48 500 000 000</a>
+    </div>
+    <p class="text-gray-600 text-sm mt-8 font-mono">kontakt@mdstudio.pl · Odpowiadam w ciągu 24h</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-8 px-6 md:px-12 border-t border-gray-800">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <a href="/" class="font-display text-2xl tracking-wider">MDStudio<span class="accent">.</span></a>
+    <div class="flex gap-6">
+      <a href="#oferta" class="nav-link">Oferta</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+    </div>
+    <p class="text-gray-700 text-xs font-mono">© 2024 MDStudio</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>

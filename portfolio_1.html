@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio – MDStudio | Realizacje stron internetowych</title>
+  <meta name="description" content="Zobacz zrealizowane projekty MDStudio — strony internetowe dla restauracji, salonów, usług i firm. Efekty w liczbach." />
+  <meta name="keywords" content="portfolio web design, realizacje strony internetowe, projekty webdesign Polska" />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Portfolio – MDStudio" />
+  <meta property="og:description" content="Zrealizowane projekty stron internetowych. Sprawdź efekty dla naszych klientów." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Portfolio – MDStudio" />
+  <meta name="twitter:description" content="Zrealizowane projekty stron internetowych." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --accent: #E8FF3C;
+      --dark: #0A0A0A;
+      --mid: #141414;
+      --surface: #1C1C1C;
+      --border: #2A2A2A;
+      --text: #F0F0F0;
+      --muted: #888;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    .font-display { font-family: 'Bebas Neue', sans-serif; }
+    .font-mono { font-family: 'DM Mono', monospace; }
+
+    .accent { color: var(--accent); }
+
+    .nav-link {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--accent); }
+
+    .nav-float {
+      position: fixed;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(232,255,60,0.25);
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      color: var(--muted);
+    }
+
+    /* Project card */
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-6px);
+    }
+
+    .project-img-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+    .project-img-wrap img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .project-card:hover .project-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .industry-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.25rem 0.75rem;
+    }
+
+    .stat-chip {
+      background: rgba(232,255,60,0.08);
+      border: 1px solid rgba(232,255,60,0.15);
+      border-radius: 4px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      padding: 0.2rem 0.6rem;
+      display: inline-block;
+    }
+
+    /* Filter buttons */
+    .filter-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      background: transparent;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(232,255,60,0.06);
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Featured card */
+    .project-card.featured {
+      grid-column: span 2;
+    }
+    .project-card.featured .project-img-wrap img {
+      height: 360px;
+    }
+    .project-card.featured .project-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .project-card.featured {
+        grid-column: span 1;
+      }
+      .project-card.featured .project-img-wrap img {
+        height: 240px;
+      }
+      .project-card.featured .project-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating Nav -->
+<nav class="nav-float">
+  <a href="index.html" class="font-display text-lg tracking-wider text-white">MDS<span class="accent">.</span></a>
+  <div class="hidden md:flex items-center gap-6">
+    <a href="index.html#oferta" class="nav-link">Oferta</a>
+    <a href="index.html#proces" class="nav-link">Jak to działa</a>
+    <a href="#projekty" class="nav-link">Projekty</a>
+    <a href="index.html#faq" class="nav-link">FAQ</a>
+  </div>
+  <a href="mailto:kontakt@mdstudio.pl" class="btn-primary text-xs py-2 px-4">Zamów stronę</a>
+</nav>
+
+<!-- PORTFOLIO HERO -->
+<section class="pt-40 pb-20 px-6 md:px-12" style="background: radial-gradient(ellipse at 80% 20%, rgba(232,255,60,0.05) 0%, transparent 60%);">
+  <div class="max-w-7xl mx-auto">
+    <div class="tag mb-6">Portfolio</div>
+    <h1 class="font-display text-6xl md:text-9xl mb-6">
+      Nasze<br/><span class="accent">realizacje</span>
+    </h1>
+    <p class="text-gray-400 text-lg max-w-2xl leading-relaxed">
+      Każda strona to inny biznes, inny cel, inny klient. Tu znajdziesz projekty z różnych branż — z realnymi wynikami, nie tylko ładnymi screenshotami.
+    </p>
+
+    <!-- Stats bar -->
+    <div class="mt-14 pt-10 border-t border-gray-800 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div>
+        <div class="font-display text-5xl accent">24+</div>
+        <div class="text-sm text-gray-500 mt-1">Zrealizowanych projektów</div>
+      </div>
+      <div>
+        <div class="font-display text-5xl text-white">100%</div>
+        <div class="text-sm text-gray-500 mt-1">Klientów wróciło po więcej</div>
+      </div>
+      <div>
+        <div class="font-display text-5xl text-white">7 dni</div>
+        <div class="text-sm text-gray-500 mt-1">Średni czas realizacji</div>
+      </div>
+      <div>
+        <div class="font-display text-5xl text-white">8 branż</div>
+        <div class="text-sm text-gray-500 mt-1">Obsługiwanych sektorów</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<section id="projekty" class="py-10 px-6 md:px-12 border-t border-gray-900">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-wrap gap-3" id="filter-bar">
+      <button class="filter-btn active" data-filter="all">Wszystkie</button>
+      <button class="filter-btn" data-filter="restauracja">Restauracja</button>
+      <button class="filter-btn" data-filter="usługi">Usługi</button>
+      <button class="filter-btn" data-filter="beauty">Beauty & Wellness</button>
+      <button class="filter-btn" data-filter="motoryzacja">Motoryzacja</button>
+      <button class="filter-btn" data-filter="prawo">Prawo & Finanse</button>
+      <button class="filter-btn" data-filter="inne">Inne</button>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS GRID -->
+<section class="pb-24 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+
+      <!-- Project 1 — Featured -->
+      <div class="project-card featured reveal" data-category="restauracja">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=80" alt="Złoty Talerz – Restauracja" />
+          <div class="industry-badge">Restauracja</div>
+        </div>
+        <div class="project-content p-8">
+          <div>
+            <h2 class="text-2xl font-semibold mb-3">Złoty Talerz</h2>
+            <p class="text-gray-400 leading-relaxed mb-4">Elegancki landing page z pełnym menu, systemem rezerwacji online i galerią zdjęć dań. Strona zaprojektowana pod zwiększenie rezerwacji i zmniejszenie liczby telefonów z pytaniem o stoliki.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="stat-chip">+140% rezerwacji</span>
+              <span class="stat-chip">Galeria + Menu</span>
+              <span class="stat-chip">System rezerwacji</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-gray-300 mb-3">Zakres projektu</h3>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center gap-2"><span class="accent text-xs">→</span> Design + kodowanie (5 dni)</li>
+              <li class="flex items-center gap-2"><span class="accent text-xs">→</span> Integracja z systemem rezerwacji</li>
+              <li class="flex items-center gap-2"><span class="accent text-xs">→</span> Optymalizacja pod SEO lokalne</li>
+              <li class="flex items-center gap-2"><span class="accent text-xs">→</span> Hosting 1 rok w cenie</li>
+            </ul>
+            <a href="mailto:kontakt@mdstudio.pl" class="btn-ghost mt-6 text-xs py-2 px-4">Chcę podobną →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card reveal" data-category="motoryzacja">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80" alt="AutoSerwis Kowalski" />
+          <div class="industry-badge">Motoryzacja</div>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h2 class="text-xl font-semibold mb-2">AutoSerwis Kowalski</h2>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Prosta, skuteczna strona wizytówkowa z formularzem wyceny i listą usług. Klient chciał głównie pojawiać się w Google dla lokalnych fraz — cel zrealizowany w 6 tygodni.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="stat-chip">+20 zapytań/mies.</span>
+            <span class="stat-chip">SEO lokalne</span>
+          </div>
+          <div class="mt-auto">
+            <div class="font-mono text-xs text-gray-600 mb-2">Czas realizacji: 6 dni</div>
+            <a href="mailto:kontakt@mdstudio.pl" class="text-xs accent font-mono hover:underline">Chcę podobną →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card reveal" data-category="beauty">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Studio Urody Marta" />
+          <div class="industry-badge">Beauty & Wellness</div>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h2 class="text-xl font-semibold mb-2">Studio Urody Marta</h2>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Elegancki, minimalistyczny design z galerią prac, cennikiem i integracją z Booksy. Klientka miała pełny grafik na 3 tygodnie do przodu już w 2 tygodnie po uruchomieniu strony.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="stat-chip">Pełny grafik w 14 dni</span>
+            <span class="stat-chip">Booksy integracja</span>
+          </div>
+          <div class="mt-auto">
+            <div class="font-mono text-xs text-gray-600 mb-2">Czas realizacji: 7 dni</div>
+            <a href="mailto:kontakt@mdstudio.pl" class="text-xs accent font-mono hover:underline">Chcę podobną →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card reveal" data-category="prawo">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=600&q=80" alt="Kancelaria Malinowska" />
+          <div class="industry-badge">Prawo</div>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h2 class="text-xl font-semibold mb-2">Kancelaria Malinowska</h2>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Poważna, stonowana strona dla kancelarii radcowskiej. Nacisk na budowanie zaufania, przejrzyste opisy specjalizacji i formularz pierwszego kontaktu. Zero zbędnych efektów.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="stat-chip">Trust-first design</span>
+            <span class="stat-chip">Lead form</span>
+          </div>
+          <div class="mt-auto">
+            <div class="font-mono text-xs text-gray-600 mb-2">Czas realizacji: 8 dni</div>
+            <a href="mailto:kontakt@mdstudio.pl" class="text-xs accent font-mono hover:underline">Chcę podobną →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card reveal" data-category="usługi">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80" alt="SprzątCo – Usługi sprzątania" />
+          <div class="industry-badge">Usługi</div>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h2 class="text-xl font-semibold mb-2">SprzątCo</h2>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Landing page dla lokalnej firmy sprzątającej. Kalkulator cen online, formularz zamówienia i opinie klientów. Nacisk na szybką konwersję — klient klika, zamawia, dostaje wycenę.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="stat-chip">Kalkulator cen</span>
+            <span class="stat-chip">+85% konwersji</span>
+          </div>
+          <div class="mt-auto">
+            <div class="font-mono text-xs text-gray-600 mb-2">Czas realizacji: 5 dni</div>
+            <a href="mailto:kontakt@mdstudio.pl" class="text-xs accent font-mono hover:underline">Chcę podobną →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card reveal" data-category="beauty">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Zen Spa & Masaż" />
+          <div class="industry-badge">Wellness</div>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h2 class="text-xl font-semibold mb-2">Zen Spa & Masaż</h2>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Spokojny, ciemny design z dużymi zdjęciami i subtelną animacją. Cennik, opisy zabiegów, rezerwacja online przez formularz. Strona, która oddaje atmosferę miejsca.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="stat-chip">Dark & Calm design</span>
+            <span class="stat-chip">Rezerwacje online</span>
+          </div>
+          <div class="mt-auto">
+            <div class="font-mono text-xs text-gray-600 mb-2">Czas realizacji: 6 dni</div>
+            <a href="mailto:kontakt@mdstudio.pl" class="text-xs accent font-mono hover:underline">Chcę podobną →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 7 -->
+      <div class="project-card reveal" data-category="inne">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1613690399151-65ea69478674?w=600&q=80" alt="FitZone – Klub fitness" />
+          <div class="industry-badge">Fitness</div>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h2 class="text-xl font-semibold mb-2">FitZone Gym</h2>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Dynamiczny landing page dla lokalnego klubu fitness. Rozkład zajęć, cennik karnetów, opinie i sekcja "Dołącz do nas" z formularzem. Bold design, maksymalna energia.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="stat-chip">Energetyczny design</span>
+            <span class="stat-chip">Rozkład zajęć</span>
+          </div>
+          <div class="mt-auto">
+            <div class="font-mono text-xs text-gray-600 mb-2">Czas realizacji: 7 dni</div>
+            <a href="mailto:kontakt@mdstudio.pl" class="text-xs accent font-mono hover:underline">Chcę podobną →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 8 -->
+      <div class="project-card reveal" data-category="usługi">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="BudujDobry – Firma budowlana" />
+          <div class="industry-badge">Budownictwo</div>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h2 class="text-xl font-semibold mb-2">BudujDobry</h2>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Strona firmowa dla ekipy remontowej. Galeria realizacji, zakres usług, obszar działania i formularz wyceny. Prosty, solidny design — jak praca, którą wykonują.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="stat-chip">Galeria realizacji</span>
+            <span class="stat-chip">Formularz wyceny</span>
+          </div>
+          <div class="mt-auto">
+            <div class="font-mono text-xs text-gray-600 mb-2">Czas realizacji: 6 dni</div>
+            <a href="mailto:kontakt@mdstudio.pl" class="text-xs accent font-mono hover:underline">Chcę podobną →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 9 -->
+      <div class="project-card reveal" data-category="prawo">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80" alt="Doradca Finansowy Nowak" />
+          <div class="industry-badge">Finanse</div>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h2 class="text-xl font-semibold mb-2">Doradca Fin. Nowak</h2>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Strona dla niezależnego doradcy finansowego. Jasna prezentacja oferty, sekcja "Kim jestem" budująca zaufanie, opinie klientów i CTA do bezpłatnej konsultacji.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="stat-chip">Trust-building</span>
+            <span class="stat-chip">Darmowa konsultacja CTA</span>
+          </div>
+          <div class="mt-auto">
+            <div class="font-mono text-xs text-gray-600 mb-2">Czas realizacji: 9 dni</div>
+            <a href="mailto:kontakt@mdstudio.pl" class="text-xs accent font-mono hover:underline">Chcę podobną →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider max-w-7xl mx-auto px-6" />
+
+<!-- TESTIMONIALS -->
+<section class="py-24 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal">
+      <div class="tag mb-4">Opinie</div>
+      <h2 class="font-display text-5xl md:text-7xl mb-12">Co mówią<br/><span class="accent">klienci</span></h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 reveal">
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 2rem;">
+        <div class="text-gray-300 text-sm leading-relaxed mb-6">"Potrzebowałam strony na wczoraj. Dostałam w 5 dni. Bez kombinowania, bez tłumaczenia co to jest brief. Po prostu zadziałało."</div>
+        <div>
+          <div class="font-semibold text-sm">Marta K.</div>
+          <div class="text-gray-600 text-xs font-mono">Studio Urody · Katowice</div>
+        </div>
+      </div>
+      <div style="background: var(--surface); border: 1px solid rgba(232,255,60,0.15); border-radius: 8px; padding: 2rem;">
+        <div class="text-gray-300 text-sm leading-relaxed mb-6">"Miałem oferty od agencji za 4000–7000 zł. Tutaj zapłaciłem 700 zł i dostałem stronę, która działa lepiej niż to, co pokazywały mi agencje w portfoliach."</div>
+        <div>
+          <div class="font-semibold text-sm">Tomasz K.</div>
+          <div class="text-gray-600 text-xs font-mono">AutoSerwis · Rybnik</div>
+        </div>
+      </div>
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 2rem;">
+        <div class="text-gray-300 text-sm leading-relaxed mb-6">"Strona pojawiła się w Google na moje lokalne frazy już po 3 tygodniach. Mam teraz 3 razy więcej zapytań niż przed uruchomieniem."</div>
+        <div>
+          <div class="font-semibold text-sm">Piotr M.</div>
+          <div class="text-gray-600 text-xs font-mono">Usługi Budowlane · Gliwice</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 px-6 md:px-12" style="background: var(--surface); border-top: 1px solid var(--border);">
+  <div class="max-w-5xl mx-auto text-center reveal">
+    <div class="tag mb-6 mx-auto" style="display: inline-block;">Następny projekt</div>
+    <h2 class="font-display text-5xl md:text-8xl mb-6">
+      Twoja firma<br/>mogłaby być<br/><span class="accent">tutaj.</span>
+    </h2>
+    <p class="text-gray-400 text-lg max-w-lg mx-auto mb-10 leading-relaxed">
+      Od 499 zł. Hosting gratis przez rok. Realizacja w 7 dni. Napisz — wycena w 24h.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="mailto:kontakt@mdstudio.pl" class="btn-primary text-base px-8 py-4">Napisz do mnie →</a>
+      <a href="index.html" class="btn-ghost text-base px-8 py-4">Wróć do strony głównej</a>
+    </div>
+    <p class="text-gray-600 text-sm mt-8 font-mono">kontakt@mdstudio.pl · +48 500 000 000</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-8 px-6 md:px-12 border-t border-gray-800">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <a href="index.html" class="font-display text-2xl tracking-wider">MDStudio<span class="accent">.</span></a>
+    <div class="flex gap-6">
+      <a href="index.html#oferta" class="nav-link">Oferta</a>
+      <a href="#projekty" class="nav-link">Portfolio</a>
+      <a href="index.html#faq" class="nav-link">FAQ</a>
+    </div>
+    <p class="text-gray-700 text-xs font-mono">© 2024 MDStudio</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) el.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card[data-category]');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+
+      projectCards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
